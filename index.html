@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- angular -->
+        <script type="text/javascript" src="js/angular.js"></script>
+
+        <!-- script -->
+        <script type="text/javascript" src="js/basketball.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <!--icons-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+
+    <body ng-app="myApp">
+      <nav class="navbar navbar-default" style="padding: 10px; background: #7BAFD4;">
+        <div class="col-xs-6" style="text-align: center;"><h2>UNC Basketball Players</h2></div>
+        <div class="col-xs-4" style="text-align: center; float: right;">
+          <ul class="nav navbar-nav">
+              <input type="text" ng-model="terms" class="form-control" style="margin: 15px; float: left;" placeholder="Search" />
+          </ul>
+        </div>
+        <div class="col-xs-2"></div>
+      </nav>
+
+        <div class="container" ng-controller="BaseController as base">
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                  <!--h1>Test</h3>
+                  <p>Hello</p>
+                  <p>{{ base.message }}</p-->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th ng-click="base.setSort('first')">First Name <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('last')">Last Name <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('position')">Position <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('games')">Games <i class="fa fa-sort"></i></th>
+                        <th ng-click="base.setSort('points')">Points <i class="fa fa-sort"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="player in base.players | filter:terms | orderBy:base.sort:base.direction">
+                        <td><img ng-src="{{player.images[0]}}" height="100" width="100" border="0"/></td>
+                        <td>{{ player.first }}</td>
+                        <td>{{ player.last }}</td>
+                        <td>{{ player.position }}</td>
+                        <td>{{ player.games }}</td>
+                        <td>{{ player.points }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
