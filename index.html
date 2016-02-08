@@ -30,9 +30,6 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                  <!--h1>Test</h3>
-                  <p>Hello</p>
-                  <p>{{ base.message }}</p-->
                   <table class="table">
                     <thead>
                       <tr>
@@ -42,6 +39,7 @@
                         <th ng-click="base.setSort('position')">Position <i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('games')">Games <i class="fa fa-sort"></i></th>
                         <th ng-click="base.setSort('points')">Points <i class="fa fa-sort"></i></th>
+                        <!--th ng-click="base.setSort('shootingPercent')">Shooting Percentage <i class="fa fa-sort"></i></th-->
                       </tr>
                     </thead>
                     <tbody>
@@ -52,6 +50,7 @@
                         <td>{{ player.position }}</td>
                         <td>{{ player.games }}</td>
                         <td>{{ player.points }}</td>
+                        <!--td>{{ base.shootingPercentage('points', 'fieldGoalsAttempted', 'freeThrowsAttempted') }}</td-->
                       </tr>
                     </tbody>
                   </table>

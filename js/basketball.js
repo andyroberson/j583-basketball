@@ -6,17 +6,22 @@ app.controller('BaseController', function() {
     this.sort = "first";
 /*
     - Display the player information in an organized fashion. - tables
-    - For each player choose four statistics show. - first, laster, position, points
+    - For each player choose four statistics show. - (first, last), position, games, points
     - If the player has an image associated with him, display at least one.      -- how to make it so no awkwardness? ng-show???
     - Allow the user to search for a player by name. - yep
-    - Sort the table by player name. - yep; redo name though
+    - Sort the table by player name. - yep; redo name? though
     - Allow the user to toggle the sort and sort in reverse and then back to standard. -yep
     *BONUS*: write functions to show the player's shooting percentage. - to do
+
+       true shooting% = points / { 2(FGA + (0.44 * FTA)}
+       source: https://en.wikipedia.org/wiki/True_shooting_percentage
+
     *BONUS*: allow the user to sort by any value you display and toggle it. - yes
+
 */
 this.setSort = (function(columnName) {
   if (this.sort === columnName) {
-    this.direction = !this.direction; //cheat to toggle
+    this.direction = !this.direction; //to toggle
   }
   this.sort = columnName;
 });
@@ -466,5 +471,14 @@ var data = [
 ];
 
 this.players = data;
+
+/*var shootingPercent;
+(points / (2*(fga + (.4 * fta))));*/
+
+/*this.shootingPercentage = (function(points, fga, fta) {
+  //change the function so that intakes the player and then finds the data of that player?
+  //review passing in values in angular?
+  return this.points;
+});*/
 
 });
